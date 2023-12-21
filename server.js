@@ -4,6 +4,7 @@ const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
+const path = require('path');
 
 const mysql = require("mysql");
 require("dotenv").config();
@@ -33,11 +34,22 @@ db.getConnection( (err, connection)=> {
   console.log ("DB connected successful: " + connection.threadId);
 });
 
-app.use("/public/", express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'views')));
+//app.use(express.static(path.join(__dirname + 'public')));
+app.set('view engine', 'ejs');
 
 //show html file to client
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  //get chat history
+  var sqlSelect = "SELECT * FROM history";
+  db.query(sqlSelect, (err, rows) =>{
+    if(err) throw err;
+    res.render("index", {
+      title: "chat history",
+      history: rows
+    });
+    console.log("history restored");
+  });
 });
 
 io.on('connection', (socket) => {
@@ -45,7 +57,7 @@ io.on('connection', (socket) => {
 
     //emit message from msg form to all connected clients
     socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
+        io.emit('chat message', "user1: " + msg);
 
         //create sql INSERT query
         var sqlInsert = "INSERT INTO history VALUES (?, ?)";
