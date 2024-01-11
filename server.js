@@ -35,20 +35,23 @@ db.getConnection( (err, connection)=> {
 });
 
 app.use(express.static(path.join(__dirname, 'views')));
-//app.use(express.static(path.join(__dirname + 'public')));
 app.set('view engine', 'ejs');
 
 //show html file to client
-app.get('/', (req, res) => {
+app.get('/chatRoom', (req, res) => {
+
+
   //get chat history
   var sqlSelect = "SELECT * FROM history";
   db.query(sqlSelect, (err, rows) =>{
     if(err) throw err;
-    res.render("index", {
+    res.render("chatRoom", {
       title: "chat history",
       history: rows
     });
     console.log("history restored");
+
+
   });
 });
 
