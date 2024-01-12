@@ -38,14 +38,14 @@ app.use(express.static(path.join(__dirname, 'views')));
 app.set('view engine', 'ejs');
 
 //show html file to client
-app.get('/chatRoom', (req, res) => {
+app.get('/', (req, res) => {
 
 
   //get chat history
   var sqlSelect = "SELECT * FROM history";
   db.query(sqlSelect, (err, rows) =>{
     if(err) throw err;
-    res.render("chatRoom", {
+    res.render("index", {
       title: "chat history",
       history: rows
     });
@@ -59,12 +59,13 @@ io.on('connection', (socket) => {
     console.log("user connected");
 
     //emit message from msg form to all connected clients
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', "user1: " + msg);
+    socket.on('chat message', (msg, username) => {
+        io.emit('chat message', username + ": " + msg);
 
         //create sql INSERT query
         var sqlInsert = "INSERT INTO history VALUES (?, ?)";
-        const insertQuery = mysql.format(sqlInsert, ['user1', msg]);
+        //insert username and message to sql table
+        const insertQuery = mysql.format(sqlInsert, [username, msg]);
 
         //execute sql query
         db.query(insertQuery, function (err, result){
