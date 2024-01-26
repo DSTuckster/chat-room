@@ -113,6 +113,6 @@ h1{
 }
 .loginbox input[type="button"]:hover{
     cursor: pointer;
-    background: var(--lightest);
+    background: var(--lighter);
     color: var(--darkest);
 }
