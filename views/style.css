@@ -1,14 +1,15 @@
 :root{
-    --darkestRGB: rgba(29,53,87, 0.15);
-    --darkest: #2B2D42;
-    --dark: #8D99AE;
-    --light: #BDC6D1;
-    --lightest: #EDF2F4;
-    --special: #D90429;
+    --darkestRGB: rgba(33,37,41, 0.15);
+    --darkest: #212529;
+    --dark: #495057;
+    --light: #CED4DA;
+    --lighter: #DEE2E6;
+    --lightest: #F8F9FA;
+    --special: #EF233C;
 }
 
 body { 
-    background: var(--light);
+    background: var(--lighter);
     margin: 0; 
     padding-bottom: 3rem; 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
