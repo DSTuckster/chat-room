@@ -39,8 +39,6 @@ app.set('view engine', 'ejs');
 
 //show html file to client
 app.get('/', (req, res) => {
-
-
   //get chat history
   var sqlSelect = "SELECT * FROM history";
   db.query(sqlSelect, (err, rows) =>{
@@ -50,9 +48,8 @@ app.get('/', (req, res) => {
       history: rows
     });
     console.log("history restored");
-
-
   });
+  
 });
 
 io.on('connection', (socket) => {

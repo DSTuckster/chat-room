@@ -1,8 +1,77 @@
+:root{
+    --darkestRGB: rgba(29,53,87, 0.15);
+    --darkest: #2B2D42;
+    --dark: #8D99AE;
+    --light: #BDC6D1;
+    --lightest: #EDF2F4;
+    --special: #D90429;
+}
+
+body { 
+    background: var(--light);
+    margin: 0; 
+    padding-bottom: 3rem; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+}
+
+#chatRoom { 
+    display: none; 
+}
+
+#form { 
+    background: var(--darkestRGB); 
+    padding: 0.25rem; 
+    position: fixed; 
+    bottom: 0; left: 0; 
+    right: 0; 
+    display: flex; 
+    height: 3rem; 
+    box-sizing: border-box; 
+    backdrop-filter: blur(10px); 
+}
+
+#input { 
+    border: none; 
+    padding: 0 1rem; 
+    flex-grow: 1; 
+    border-radius: 2rem; 
+    margin: 0.25rem; 
+}
+
+#input:focus {
+    outline: none; 
+}
+
+#form > button {
+    background: var(--darkest); 
+    border: none; 
+    padding: 0 1rem; 
+    margin: 0.25rem; 
+    border-radius: 3px; 
+    outline: none; 
+    color: #fff; 
+}
+
+#messages { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+}
+
+#messages > li {
+    padding: 0.5rem 1rem; 
+    background: var(--light);
+}
+
+#messages > li:nth-child(odd) {
+    background: var(--lightest); 
+}
+
 .loginbox{
     width: 320px;
     height: 420px;
-    background: #000;
-    color: #fff;
+    background: var(--darkest);
+    color: var(--lightest);
     top: 50%;
     left: 50%;
     position: absolute;
@@ -25,24 +94,24 @@ h1{
 
 .loginbox input[type="text"]{
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid var(--lightest);
     background: transparent;
     outline: none;
     height: 40px;
-    color: #fff;
+    color: var(--lightest);
     font-size: 16px;
 }
 .loginbox input[type="button"]{
     border: none;
     outline: none;
     height: 40px;
-    background: #fb2525;
-    color: #fff;
+    background: var(--special);
+    color: var(--darkest);
     font-size: 18px;
     border-radius: 20px;
 }
 .loginbox input[type="button"]:hover{
     cursor: pointer;
-    background: #ffc107;
-    color: #000;
+    background: var(--lightest);
+    color: var(--darkest);
 }
