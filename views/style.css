@@ -1,11 +1,11 @@
 :root{
-    --darkestRGB: rgba(33,37,41, 0.15);
-    --darkest: #212529;
-    --dark: #495057;
-    --light: #CED4DA;
-    --lighter: #DEE2E6;
-    --lightest: #F8F9FA;
-    --special: #EF233C;
+    --darkestRGB: rgba(11,9,10, 0.15);
+    --darkest: #0B090A;
+    --dark: #161A1D;
+    --light: #D3D3D3;
+    --lighter: #F5F3F4;
+    --lightest: #FFFFFF;
+    --special: #E5383B;
 }
 
 body { 
