@@ -6,10 +6,10 @@ A simple Chat Room Software that allows users to connect to a global chat room a
 
 Installation:
 # Clone the repository
-git clone https://github.com/yourusername/your-chat-room-software.git
+git clone https://github.com/DylanSTucker/chat-room.git
 
 # Navigate to the project directory
-cd your-chat-room-software
+cd chat-room
 
 # Install dependencies
 npm install
